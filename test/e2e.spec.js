@@ -24,13 +24,16 @@ describe('express', () => {
   it('should have the correct page title', () =>
     nightmare
       .goto(url)
-      .evaluate(() => document.querySelector('body').innerText)
+      .evaluate(() => document.querySelector('h1').innerText)
       .end()
       .then((text) => {
-        expect(text).to.equal('Hello World');
+        expect(text).to.equal('Welcome To OMDB Movie Finder');
       })
   );
 
-  it('returns the correct status code', () => axios.get(url)
+  it('returns 200 status code if movie is found on OMDB', () => axios.get(url)
     .then(response => expect(response.status === 200)));
+
+  it('returns 404 status code if movie is not found on OMDB', () => axios.get(url)
+    .catch(err => expect(err.status === 404)));
 });

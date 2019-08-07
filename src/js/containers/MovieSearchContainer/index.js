@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
-import MovieDetailContainer from './MovieSearchContainer';
+import MovieSearchContainer from './MovieSearchContainer';
 
 const mapStoreToProps = store => {
-    return {
-        title: store.movieData.title,
-        movies: store.movieData.movies,
-        movieInfo: store.movieData.movieInfo
-    };
+  return {
+    title: store.movieData.title,
+    movies: store.movieData.movies
+  };
 }
 
-export default connect(mapStoreToProps)(MovieDetailContainer);
+export default connect(mapStoreToProps)(MovieSearchContainer);
