@@ -40,30 +40,30 @@ export default class MovieSearchContainer extends Component {
           </div>
 
           <div className='row'>
-              <div className='col-md-12'>
-                <div className='d-flex justify-content-center' style={{ display: 'flex', flexWrap: 'wrap' }}>
-                  {
-                    movies.slice(0, 9).map((movie, i) => {
-                      return (
-                        <div className='card border-0' style={{ margin: '10px' }} key={ i }>
-                          {/* movie title and release date */}
-                          <h1 className='card-header text-white text-center bg-info font-weight-bold font-italic' style={{ fontSize: '30px', width: '20rem' }}>{`${movie.Title} (${movie.Year})`}</h1>
-                          {/* movie facts */}
-                          <div className='card-body mb-1 pb-1' style={{ width: '20rem' }}>
-                            <img src={ `${movie.Poster}` } className='img-fluid' alt={ movie.Title } />
-                          </div>
-                          {/* more information button */}
-                          <div className='text-center mb-3'>
-                            <Link to={ `/movie/${movie.imdbID}` } className='btn btn-danger' id='link'>Movie Information</Link>
-                          </div>
-                        </div>
-                    )})
-                  }
-              </div>
+            <div className='col-md-12'>
+              <div className='d-flex justify-content-center' style={{ display: 'flex', flexWrap: 'wrap' }}> {
+                movies.slice(0, 9).map((movie, i) => {
+                  return (
+                    <div className='card border-0' style={{ margin: '10px' }} key={ i }>
+                      {/* movie title and release date */}
+                      <h1 className='card-header text-white text-center bg-info font-weight-bold font-italic' style={{ fontSize: '30px', width: '20rem' }}>{`${movie.Title} (${movie.Year})`}</h1>
+                      {/* movie facts */}
+                      <div className='card-body mb-1 pb-1' style={{ width: '20rem' }}>
+                        <img src={ `${movie.Poster}` } className='img-fluid' alt={ movie.Title } />
+                      </div>
+                      {/* more information button */}
+                      <div className='text-center mb-3'>
+                        <Link to={ `/movie/${movie.imdbID}` } className='btn btn-danger' id='link'>Movie Information</Link>
+                      </div>
+                    </div>
+                  )}
+                )
+              }
             </div>
           </div>
         </div>
       </div>
+    </div>
     )
   }
 }
